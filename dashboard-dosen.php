@@ -1,5 +1,9 @@
 <?php
+
+error_reporting(0);
+
 session_start();
+
 $userLogin = $_SESSION['user'];
 if ($userLogin['peran'] != 'dosen') {
     header('Location: logout.php');

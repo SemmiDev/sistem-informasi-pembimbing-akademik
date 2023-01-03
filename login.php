@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,12 +18,13 @@
                             Welcome to BimAkad
                         </h1>
                         <h1 class="mt-2 text-4xl font-semibold text-black">Sign In</h1>
+                        <?php if (isset($_SESSION['error_login'])) { ?>
+                            <div class="mt-5 shadow-lg alert alert-error">
+                                <strong>Warning!</strong> <?php echo $_SESSION['error_login']; ?>
+                            </div>
+                        <?php } ?>
+                        <?php unset($_SESSION['error_login']); ?>
                     </div>
-
-                    <!-- <div>
-                        <h2 class="text-sm text-gray-400">No Account?</h2>
-                        <a href="register.php" class="text-sm font-semibold text-orange-500 hover:font-bold">Sign Up</a>
-                    </div> -->
                 </div>
 
                 <form method="post" action="services/login-process.php" class="flex flex-col w-full gap-3 mt-5">
@@ -44,9 +47,6 @@
                                 </span>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex justify-end">
-                        <a href="#" class="text-xs font-semibold text-orange-500">Forgot Password?</a>
                     </div>
                     <button type="submit" name="login" class="w-full px-3 py-3 text-sm font-semibold text-white bg-orange-500 rounded-lg">
                         Sign In

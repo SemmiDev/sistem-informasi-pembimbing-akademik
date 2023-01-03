@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
 session_start();
 $userLogin = $_SESSION['user'];
 if ($userLogin['peran'] != 'dosen') {
@@ -6,7 +9,6 @@ if ($userLogin['peran'] != 'dosen') {
     exit;
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -24,8 +26,14 @@ if ($userLogin['peran'] != 'dosen') {
 
         <div class="mx-auto mt-12">
             <h1 class="font-bold text-center text-slate-900">Ubah password</h1>
-            <form method="post" action="services/change-password.php" class="w-[400px] flex flex-col gap-3 mt-5 border border-1 p-5 shadow-xl shadow-orange-300/80 border-black rounded-xl">
+            <form method="post" enctype="multipart/form-data" action="services/change-password.php" class="w-[400px] flex flex-col gap-3 mt-5 border border-1 p-5 shadow-xl shadow-orange-300/80 border-black rounded-xl">
                 <input type="hidden" value="<?= $userLogin['id'] ?>" name="id" />
+                <div class="w-full">
+                    <label class="label">
+                        <span class="text-sm text-black label-text">Foto Profil</span>
+                    </label>
+                    <input accept="image/*" name="image" type="file" class="w-full max-w-xs rounded-full file-input " />
+                </div>
                 <div class="w-full">
                     <label class="label">
                         <span class="text-sm text-black label-text">Nama</span>

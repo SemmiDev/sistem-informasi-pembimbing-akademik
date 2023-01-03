@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
 session_start();
 $userLogin = $_SESSION['user'];
 if ($userLogin['peran'] != 'jurusan') {
@@ -36,44 +39,44 @@ if ($userLogin['peran'] != 'jurusan') {
 
         <div class="mx-auto mt-12">
             <form method="post" action="services/edit-mahasiswa-process.php" class="w-[400px] flex flex-col gap-3 mt-5 border border-1 p-5 shadow-xl shadow-orange-300/80 border-black rounded-xl">
-                <h1 class="text-slate-900 text-center font-bold">Edit Data Mahasiswa</h1>
+                <h1 class="font-bold text-center text-slate-900">Edit Data Mahasiswa</h1>
                 <!-- hidden -->
                 <input type="hidden" name="id" value="<?= $mhs['id'] ?>">
                 <div class="w-full">
                     <label class="label">
-                        <span class="label-text text-sm text-black">Nama</span>
+                        <span class="text-sm text-black label-text">Nama</span>
                     </label>
-                    <input type="text" placeholder="Masukkan nama" value="<?= $mhs['nama'] ?>" name="nama" class="input input-sm  bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
+                    <input type="text" placeholder="Masukkan nama" value="<?= $mhs['nama'] ?>" name="nama" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
                 </div>
                 <div class="w-full">
-                    <label class="label w-16">
-                        <span class="label-text text-sm text-black">NIM</span>
+                    <label class="w-16 label">
+                        <span class="text-sm text-black label-text">NIM</span>
                     </label>
-                    <input type="text" placeholder="Masukkan NIM" value="<?= $mhs['nim'] ?>" name="nim" class="input input-sm  bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
-                </div>
-                <div class="w-full">
-                    <label class="label">
-                        <span class="label-text text-sm text-black">Program Studi</span>
-                    </label>
-                    <input type="text" placeholder="text" value="<?= $mhs['program_studi'] ?>" name="programStudi" class="input input-sm  bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
+                    <input type="text" placeholder="Masukkan NIM" value="<?= $mhs['nim'] ?>" name="nim" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
                 </div>
                 <div class="w-full">
                     <label class="label">
-                        <span class="label-text text-sm text-black">Angkatan</span>
+                        <span class="text-sm text-black label-text">Program Studi</span>
                     </label>
-                    <input type="text" placeholder="number" value="<?= $mhs['angkatan'] ?>" name="angkatan" class="input input-sm  bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
+                    <input type="text" placeholder="text" value="<?= $mhs['program_studi'] ?>" name="programStudi" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
                 </div>
                 <div class="w-full">
                     <label class="label">
-                        <span class="label-text text-sm text-black">No. Handphone</span>
+                        <span class="text-sm text-black label-text">Angkatan</span>
                     </label>
-                    <input type="text" placeholder="text" value="<?= $mhs['nomor_handphone'] ?>" name="noHp" class="input input-sm bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
+                    <input type="text" placeholder="number" value="<?= $mhs['angkatan'] ?>" name="angkatan" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
                 </div>
                 <div class="w-full">
                     <label class="label">
-                        <span class="label-text text-sm text-black">Nama Dosen</span>
+                        <span class="text-sm text-black label-text">No. Handphone</span>
                     </label>
-                    <select name="idDosen" class="select w-full bg-white text-slate-900  select-sm border border-black/50 text-xs input-bordered ">
+                    <input type="text" placeholder="text" value="<?= $mhs['nomor_handphone'] ?>" name="noHp" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
+                </div>
+                <div class="w-full">
+                    <label class="label">
+                        <span class="text-sm text-black label-text">Nama Dosen</span>
+                    </label>
+                    <select name="idDosen" class="w-full text-xs bg-white border select text-slate-900 select-sm border-black/50 input-bordered ">
                         <?php foreach ($listDosen as $dosen) : ?>
                             <!-- selected if $dosen['id'] = $mhs['id_dosen_pa'] -->
                             <option value="<?= $dosen['id'] ?>" <?= $dosen['id'] == $mhs['id_dosen_pa'] ? 'selected' : '' ?>><?= $dosen['nama'] ?></option>
@@ -83,11 +86,11 @@ if ($userLogin['peran'] != 'jurusan') {
 
                 <div class="w-full">
                     <label class="label">
-                        <span class="label-text text-sm text-black">Semester</span>
+                        <span class="text-sm text-black label-text">Semester</span>
                     </label>
-                    <input type="number" placeholder="Masukkan semester" value="<?= $mhs['semester'] ?>" name="semester" class="input input-sm bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
+                    <input type="number" placeholder="Masukkan semester" value="<?= $mhs['semester'] ?>" name="semester" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
                 </div>
-                <button type="submit" name="edit-mahasiswa-button" class="w-full text-white px-3 py-3 text-sm font-semibold bg-orange-500 rounded-lg">
+                <button type="submit" name="edit-mahasiswa-button" class="w-full px-3 py-3 text-sm font-semibold text-white bg-orange-500 rounded-lg">
                     Edit
                 </button>
             </form>

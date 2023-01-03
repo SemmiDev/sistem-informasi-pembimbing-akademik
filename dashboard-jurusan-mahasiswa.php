@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
 session_start();
 $userLogin = $_SESSION['user'];
 if ($userLogin['peran'] != 'jurusan') {
@@ -34,50 +37,50 @@ if ($userLogin['peran'] != 'jurusan') {
 
         <div class="mx-auto">
             <div class="overflow-x-auto">
-                <a href="dashboard-jurusan-tambah-mahasiswa.php" class="btn  btn-success my-5">
+                <a href="dashboard-jurusan-tambah-mahasiswa.php" class="my-5 btn btn-success">
                     Tambah Data Mahasiswa
                 </a>
                 <?php if (count($listMhs) == 0) { ?>
-                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <div class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded" role="alert">
                         <strong class="font-bold">Data Kosong!</strong>
                         <span class="block sm:inline">Tidak ada data mahasiswa yang tersedia.</span>
                     </div>
                 <?php } else { ?>
-                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
-                                    <th scope="col" class="py-3 px-6">
+                                    <th scope="col" class="px-6 py-3">
                                         Kode
                                     </th>
-                                    <th scope="col" class="py-3 px-6">
+                                    <th scope="col" class="px-6 py-3">
                                         NIM
                                     </th>
-                                    <th scope="col" class="py-3 px-6">
+                                    <th scope="col" class="px-6 py-3">
                                         Nama
                                     </th>
 
-                                    <th scope="col" class="py-3 px-6">
+                                    <th scope="col" class="px-6 py-3">
                                         Prodi
                                     </th>
 
-                                    <th scope="col" class="py-3 px-6">
+                                    <th scope="col" class="px-6 py-3">
                                         Angkatan
                                     </th>
 
-                                    <th scope="col" class="py-3 px-6">
+                                    <th scope="col" class="px-6 py-3">
                                         No. HP
                                     </th>
 
-                                    <th scope="col" class="py-3 px-6">
+                                    <th scope="col" class="px-6 py-3">
                                         Nama dosen
                                     </th>
 
-                                    <th scope="col" class="py-3 px-6">
+                                    <th scope="col" class="px-6 py-3">
                                         Semester
                                     </th>
 
-                                    <th scope="col" class="py-3 px-6 text-center">
+                                    <th scope="col" class="px-6 py-3 text-center">
                                         Action
                                     </th>
 
@@ -86,35 +89,35 @@ if ($userLogin['peran'] != 'jurusan') {
                             <tbody>
                                 <?php foreach ($listMhs as $key => $mhs) : ?>
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             <?= ++$key ?>
                                         </th>
-                                        <td class="py-4 px-6">
+                                        <td class="px-6 py-4">
                                             <?= $mhs['nim'] ?>
                                         </td>
-                                        <td class="py-4 px-6">
+                                        <td class="px-6 py-4">
                                             <?= $mhs['nama'] ?>
                                         </td>
-                                        <td class="py-4 px-6">
+                                        <td class="px-6 py-4">
                                             <?= $mhs['program_studi'] ?>
                                         </td>
-                                        <td class="py-4 px-6">
+                                        <td class="px-6 py-4">
                                             <?= $mhs['angkatan'] ?>
                                         </td>
-                                        <td class="py-4 px-6">
+                                        <td class="px-6 py-4">
                                             <?= $mhs['nomor_handphone'] ?>
                                         </td>
 
-                                        <td class="py-4 px-6">
+                                        <td class="px-6 py-4">
                                             <?= $mhs['dosen_pa'] ?>
                                         </td>
 
-                                        <td class="py-4 px-6">
+                                        <td class="px-6 py-4">
                                             <?= $mhs['semester'] ?>
                                         </td>
-                                        <td class="py-4 px-6">
-                                            <a href="dashboard-jurusan-edit-mahasiswa.php?id=<?= $mhs['id'] ?>" class="btn btn-sm m-1 btn-warning">Edit</a>
-                                            <a href="services/delete-mahasiswa-process.php?id=<?= $mhs['id'] ?>" class="btn btn-sm m-1 btn-error">Delete</a>
+                                        <td class="px-6 py-4">
+                                            <a href="dashboard-jurusan-edit-mahasiswa.php?id=<?= $mhs['id'] ?>" class="m-1 btn btn-sm btn-warning">Edit</a>
+                                            <a href="services/delete-mahasiswa-process.php?id=<?= $mhs['id'] ?>" class="m-1 btn btn-sm btn-error">Delete</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

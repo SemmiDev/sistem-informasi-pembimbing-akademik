@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
 session_start();
 $userLogin = $_SESSION['user'];
 if ($userLogin['peran'] != 'jurusan') {
@@ -87,7 +90,13 @@ if ($userLogin['peran'] != 'jurusan') {
                                         </td>
                                         <td class="px-6 py-4 text-right">
                                             <a href="dashboard-jurusan-edit-dosen.php?id=<?= $dosen['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                                            <a href="services/delete-dosen-process.php?id=<?= $dosen['id'] ?>" class="btn btn-sm btn-error">Delete</a>
+                                            <!-- show alert when delete -->
+                                            <script>
+                                                function confirmDelete() {
+                                                    return confirm('Apakah anda yakin ingin menghapus data ini?');
+                                                }
+                                            </script>
+                                            <a onclick="return confirmDelete()" href="services/delete-dosen-process.php?id=<?= $dosen['id'] ?>" class="btn btn-sm btn-error">Delete</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

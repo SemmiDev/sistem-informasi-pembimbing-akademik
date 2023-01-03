@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
 session_start();
 $userLogin = $_SESSION['user'];
 if ($userLogin['peran'] != 'jurusan') {
@@ -23,27 +26,27 @@ if ($userLogin['peran'] != 'jurusan') {
 
         <div class="mx-auto mt-12">
             <form method="post" action="services/add-dosen-process.php" class="w-[400px] flex flex-col gap-3 mt-5 border border-1 p-5 shadow-xl shadow-orange-300/80 border-black rounded-xl">
-                <h1 class="text-slate-900 text-center font-bold">Tambah Data Dosen</h1>
+                <h1 class="font-bold text-center text-slate-900">Tambah Data Dosen</h1>
                 <div class="w-full">
                     <label class="label">
-                        <span class="label-text text-sm text-black">Nama</span>
+                        <span class="text-sm text-black label-text">Nama</span>
                     </label>
-                    <input type="text" placeholder="Masukkan nama" name="nama" class="input input-sm  bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
+                    <input type="text" placeholder="Masukkan nama" name="nama" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
                 </div>
                 <div class="w-full">
-                    <label class="label w-16">
-                        <span class="label-text text-sm text-black">NIP</span>
+                    <label class="w-16 label">
+                        <span class="text-sm text-black label-text">NIP</span>
                     </label>
-                    <input type="text" placeholder="Masukkan NIP" name="nip" class="input input-sm  bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
+                    <input type="text" minlength="18" maxlength="18" placeholder="Masukkan NIP" name="nip" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
                 </div>
                 <div class="w-full">
                     <label class="label">
-                        <span class="label-text text-sm text-black">Password</span>
+                        <span class="text-sm text-black label-text">Password</span>
                     </label>
-                    <input type="password" placeholder="***********" name="password" class="input input-sm  bg-white text-slate-900  border border-black/50 input-bordered w-full" autofocus required />
+                    <input type="password" placeholder="***********" name="password" class="w-full bg-white border input input-sm text-slate-900 border-black/50 input-bordered" autofocus required />
                 </div>
 
-                <button type="submit" name="add-dosen-button" class="w-full text-white px-3 py-3 text-sm font-semibold bg-orange-500 rounded-lg">
+                <button type="submit" name="add-dosen-button" class="w-full px-3 py-3 text-sm font-semibold text-white bg-orange-500 rounded-lg">
                     Tambah
                 </button>
             </form>

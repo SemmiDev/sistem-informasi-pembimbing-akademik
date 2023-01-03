@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
 session_start();
 $userLogin = $_SESSION['user'];
 if ($userLogin['peran'] != 'jurusan') {
@@ -179,9 +182,9 @@ if ($userLogin['peran'] != 'jurusan') {
 
     <script type="text/javascript">
         function PrintPage() {
-            // document.getElementById("sidebar-dosen").hidden = true;
-            // document.getElementById("navigation").hidden = true;
-            // document.getElementById("cetak").classList.add("hidden");
+            document.getElementById("sidebar-jurusan").hidden = true;
+            document.getElementById("navigation").hidden = true;
+            document.getElementById("cetak").classList.add("hidden");
             // document.getElementById("tambah-bimbingan").classList.add("hidden");
 
             // var details = document.getElementsByClassName("details");
@@ -190,9 +193,9 @@ if ($userLogin['peran'] != 'jurusan') {
             // }
 
             window.print();
-            // document.getElementById("sidebar-dosen").hidden = false;
-            // document.getElementById("navigation").hidden = false;
-            // document.getElementById("cetak").classList.remove("hidden");
+            document.getElementById("sidebar-jurusan").hidden = false;
+            document.getElementById("navigation").hidden = false;
+            document.getElementById("cetak").classList.remove("hidden");
             // document.getElementById("tambah-bimbingan").classList.remove("hidden");
 
             // var details = document.getElementsByClassName("details");

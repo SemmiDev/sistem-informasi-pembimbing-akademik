@@ -1,4 +1,4 @@
-<aside class="w-64" aria-label="Sidebar">
+<aside class="w-64" aria-label="Sidebar" id="sidebar-jurusan">
     <div class="min-h-screen px-3 py-4 overflow-y-auto bg-white rounded dark:bg-gray-800">
         <div class="flex flex-col items-center justify-center w-full gap-2 mx-auto mt-8 mb-8 place-content-center">
             <?php if ($userLogin['foto_profile']) { ?>
@@ -42,11 +42,13 @@
                     <span class="ml-3">Ubah password</span>
                 </a>
             </li>
+            <li>
+                <a href="logout.php" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <img src="./images/logout.png" class="w-6 h-6">
+                    Logout
+                </a>
+            </li>
         </ul>
 
-        <a href="logout.php" class="absolute flex items-center px-3 text-black bottom-5 left-2">
-            <img src="./images/logout.png" class="w-5 h-5">
-            Logout
-        </a>
     </div>
 </aside>

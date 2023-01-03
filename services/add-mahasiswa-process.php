@@ -11,8 +11,6 @@ if (isset($_POST['add-mahasiswa-button'])) {
     $noHp = $_POST['noHp'];
     $semester = $_POST['semester'];
 
-
-
     // menyiapkan query
     $sql = "INSERT INTO mahasiswa (nama, nim, program_studi, angkatan, nomor_handphone, id_dosen_pa, semester)
             VALUES (:name, :nim, :programStudi, :angkatan, :noHp, :dosenId, :semester)";
